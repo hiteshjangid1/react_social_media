@@ -1,6 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Page from './page1.js'
+import News from './newsfeed.js'
+import './w3.css'
+import user from './img/user.jpg'
 import { render } from '@testing-library/react'
 
 
@@ -10,10 +13,10 @@ class Login extends React.Component
     {
         super(props)
         this.state={
-          email1:this.props.email || "",
-          password1:this.props.password || "",
-          email: 'hiteshjangid579@gmail.com',
-          password: '12345678'
+          email1: "",
+          password1:"",
+          email: this.props.email || "hj",
+          password: this.props.password || "1234"
 
         }
     }
@@ -31,29 +34,33 @@ onSubmit= (event) => {
         event.preventDefault()
     if((this.state.email1== this.state.email) && (this.state.password1==this.state.password))
   {
-              ReactDOM.render(<h1>User Authenticated!</h1>,document.getElementById('root'))
+             ReactDOM.render(<News />,document.getElementById('root'))
+      ReactDOM.render("", document.getElementById('boot'))
     }
     else{
-      ReactDOM.render(<h1>New User</h1>, document.getElementById('root'))
+      ReactDOM.render(<h1>Please Sign up..New User</h1>, document.getElementById('boot'))
     }
           
 }
 
 signupPage= (event)=>{
   ReactDOM.render(<Page />,document.getElementById('root'))
+  ReactDOM.render("", document.getElementById('boot'))
 }
 
 render()
 {
   return (
+    <div className="w3-card-4 w3-center" style={{margin:"auto",marginTop:"10%", width:"70%", padding:"2%"}}>
+        <img src={user} alt="image not found" style={{width:"40%"}} />
           <form onSubmit={this.onSubmit}>
-            <input type='text' placeholder="Email" onChange={this.onmail}/><br /><br />
-      <input type='password' placeholder="Password" onChange={this.onpass} /><br /> <br />
+            <input type='text' placeholder="Email" onChange={this.onmail} required/><br /><br />
+      <input type='password' placeholder="Password" onChange={this.onpass}required /><br /> <br />
     
             <input type='Submit'  style={{marginRight: "10px"}} />
             <button onClick={this.signupPage}>New User</button>
               </form>
-              
+              </div>
       );
 }
 }

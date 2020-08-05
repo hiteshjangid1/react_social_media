@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Login from './index.js'
 
 
+
 class Page extends React.Component
 {
         constructor(props){
@@ -51,13 +52,15 @@ class Page extends React.Component
 
     render()  {
         return (
+            <div className="w3-card-4 w3-center" style={{ margin: "auto", marginTop: "10%", width: "70%", padding: "3%" }}>
             <form  onSubmit={this.subhand}>
-                <input type="text" placeholder="Name"  onChange={this.onname}/><br/> <br/>
-                <input type="text" placeholder="Email" onChange={this.onemail}/><br /> <br />
-                <input type="password" placeholder="Password" onChange={this.onpas}/><br /> <br />
-                <input type="password" placeholder="Re-enter Password" onChange={this.onpass}/><br /> <br />
+                <input type="text" placeholder="Name"  onChange={this.onname} required/><br/> <br/>
+                <input type="text" placeholder="Email" onChange={this.onemail} required/><br /> <br />
+                <input type="password" placeholder="Password" onChange={this.onpas}required/><br /> <br />
+                <input type="password" placeholder="Re-enter Password" onChange={this.onpass}required/><br /> <br />
                 <input type="Submit"/>
                 </form>
+                </div>
         );
     }
 }
