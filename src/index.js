@@ -16,8 +16,8 @@ class Login extends React.Component
           email1: "",
           password1:"",
           email: this.props.email || "",
-          password: this.props.password || ""
-
+          password: this.props.password || "",
+          name: this.props.nm || "Hitesh Jangir"
         }
     }
 
@@ -34,7 +34,7 @@ onSubmit= (event) => {
         event.preventDefault()
     if((this.state.email1== this.state.email) && (this.state.password1==this.state.password))
   {
-             ReactDOM.render(<News />,document.getElementById('root'))
+             ReactDOM.render(<News name= {this.state.name} />,document.getElementById('root'))
       ReactDOM.render("", document.getElementById('boot'))
     }
     else{

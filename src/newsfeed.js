@@ -5,13 +5,34 @@ import './w3.css'
 import hacker from './img/=.jpeg'
 import spidy from './img/spidy.jpg'
 import feed from './img/feed1.jpg'
+import Page from './page1.js'
 
 class News extends React.Component{
-   
+    
+    constructor(props){
+        super(props)
+        this.state={
+            commn:''
+        };
+    }
+
+    changeit= (event) =>{
+            this.setState({commn:event.target.value})
+    }
+
+    commentit= (event) =>{
+        event.preventDefault()
+        document.getElementById('cmnt').style.display="none"
+        ReactDOM.render(<div className="w3-card-4 w3-margin-top w3-margin" style={{ width: "90%" }}>
+            <h3>{this.props.name}</h3>
+            <p>{this.state.commn}</p>
+        </div>, document.getElementById('boot'))
+    }
 
     render(){
         return(
-        <div className="w3-animate-opacity">
+            <div>
+        <div className="w3-animate-opacity w3-bottombar">
                 <div className="w3-card-4 w3-margin" style={{ width: "90%", marginLeft: "5%",boxSizing:"border-box"}}>
                     <div className=" w3-bar">
                     <img src={hacker} alt="image not found"  style={{float:"left"}} className="w3-bar-item"  style={{width:"100%"}}/>
@@ -39,7 +60,22 @@ class News extends React.Component{
                  becoming a professional developer.</p>
                     </div>
                 </div>
-            </div>);
+            </div>
+
+                <div className="w3-card-4 w3-margin-top w3-margin" style={{ width: "90%" }}  id="cmnt">
+                    <p>{this.state.commn}</p>
+                </div>
+
+
+            <div className="w3-margin-top w3-card ">
+                <form>
+                    <textarea  style={{ width: "90%", marginLeft: "2%", boxSizing: "border-box" }} className="w3-border-blue " rows="10" onChange={this.changeit}></textarea>
+                    <button type="button" className="w3-button w3-block w3-center w3-black w3-hover-red w3-active-purple" style={{ width: "90%", marginLeft: "2%", boxSizing: "border-box" }} onClick={this.commentit}>Comment</button>
+                </form>
+            </div>
+        
+            </div>
+        );
     }
 }
 

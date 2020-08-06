@@ -41,7 +41,7 @@ class Page extends React.Component
                 Login.email1=this.state.email;
                 Login.password1=this.state.password1;
                 setTimeout(()=>{
-                    ReactDOM.render(<Login email={this.state.email} password={this.state.password1} />, document.getElementById('root'))
+                    ReactDOM.render(<Login email={this.state.email} password={this.state.password1} nm={this.state.name} />, document.getElementById('root'))
                     ReactDOM.render("", document.getElementById('boot'))
                 },3000)
             }
