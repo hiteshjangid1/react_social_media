@@ -15,8 +15,8 @@ class Login extends React.Component
         this.state={
           email1: "",
           password1:"",
-          email: this.props.email || "hj",
-          password: this.props.password || "1234"
+          email: this.props.email || "",
+          password: this.props.password || ""
 
         }
     }
@@ -54,8 +54,8 @@ render()
     <div className="w3-card-4 w3-center" style={{margin:"auto",marginTop:"10%", width:"70%", padding:"2%"}}>
         <img src={user} alt="image not found" style={{width:"40%"}} />
           <form onSubmit={this.onSubmit}>
-            <input type='text' placeholder="Email" onChange={this.onmail} required/><br /><br />
-      <input type='password' placeholder="Password" onChange={this.onpass}required /><br /> <br />
+            <input type='text' placeholder="Email" onChange={this.onmail} /><br /><br />
+      <input type='password' placeholder="Password" onChange={this.onpass} /><br /> <br />
     
             <input type='Submit'  style={{marginRight: "10px"}} />
             <button onClick={this.signupPage}>New User</button>
